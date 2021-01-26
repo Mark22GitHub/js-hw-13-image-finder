@@ -1,20 +1,70 @@
-// export default apiService;
 
-const apiKey = `18623551-685e1819373a3e2d77873e072`;
+export default {
+  queryHits: '',
+  page: 1,
+  per_page: 12,
+  
+  fetchHits() {
+    const apiKey = '18623551-685e1819373a3e2d77873e072';
+    const url = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${this.query}&page=${this.page}&per_page=${this.per_page}&key=${apiKey}`;
 
-const url = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${query}&page=${page_number}&per_page=${per_page}&key=${apiKey}`;
+    return fetch(url)
+      .then(response => response.json())
+      .then(({ hits }) => {
+        this.incrementPage();
+
+        return hits;
+      });
+    },
+  
+  resetPage() {
+    this.page = 1;
+  },
+  incrementPage() {
+    this.page += 1;
+  },
+  
+  get query() {
+    return this.queryHits;
+  },
+  set query(value) {
+    this.queryHits = value;
+  },
+};
 
 
-let query;
-let page_number;
-const per_page = 12;
 
+// =======================================================
+// const apiKey = '4330ebfabc654a6992c2aa792f3173a3';
 
-// Тебе интересны следующие свойства:
+// export default {
+//   searchQuery: '',
+//   page: 1,
+//   fetchArticles() {
+//     const url = `http://newsapi.org/v2/everything?q=${this.query}&language=en&pageSize=5&page=${this.page}`;
+//     const options = {
+//       headers: { Authorization: apiKey },
+//     };
 
-// webformatURL - ссылка на маленькое изображение для списка карточек
-// largeImageURL - ссылка на большое изображение (смотри пункт 'дополнительно')
-// likes - количество лайков
-// views - количество просмотров
-// comments - количество комментариев
-// downloads - количество загрузок
+//     return fetch(url, options)
+//       .then(res => res.json())
+//       .then(({ articles }) => {
+//         this.incrementPage();
+
+//         return articles;
+//       });
+//   },
+//   resetPage() {
+//     this.page = 1;
+//   },
+//   incrementPage() {
+//     this.page += 1;
+//   },
+//   get query() {
+//     return this.searchQuery;
+//   },
+//   set query(value) {
+//     this.searchQuery = value;
+//   },
+// };
+// =======================================================
