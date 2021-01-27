@@ -1,4 +1,41 @@
 body {
-  background-color: black;
-  color: rgb(159, 242, 255);
+  background-image: url("https://wallpapercave.com/wp/wp3516810.jpg");
+  color: rgb(140, 138, 138);
+}
+
+::placeholder {
+  color: rgb(72, 72, 72);
+}
+.photo-card {
+  margin-bottom: 20px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.input {
+  background-color: rgb(140, 138, 138);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  padding: 7px 20px;
+  margin: 50px auto;
+  border-radius: 15px;
+}
+
+.gallery {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  margin: 10px;
+  list-style: none;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+}
+
+.stats-item {
+  padding: 24px;
 }
