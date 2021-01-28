@@ -8,9 +8,9 @@ refs.ulGallery.addEventListener("click", (event) => {
        const dataLightBox = event.target.dataset.lightbox;
         
        const instance = basicLightbox.create(
-            `<div>
+            `<p>
             <img src="${dataLightBox}" width="1300" height="700">
-            </div>`
+            </p>`
         );
     instance.show();
   }

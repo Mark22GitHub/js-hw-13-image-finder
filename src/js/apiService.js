@@ -1,8 +1,7 @@
-
 export default {
   queryHits: '',
   page: 1,
-  per_page: 6,
+  per_page: 12,
   
   fetchHits() {
     const apiKey = '18623551-685e1819373a3e2d77873e072';
